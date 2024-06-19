@@ -1,0 +1,439 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.scrollBody {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.textContainer .secondary {
+  position: absolute;
+
+  top: 0;
+
+  color: black;
+
+  opacity: 1;
+
+  transform: rotateX(-90deg) translateY(3.5vw);
+
+  transform-origin: bottom center;
+}
+
+.textContainer:hover {
+  transform: rotateX(90deg);
+}
+
+.textContainer:hover .primary {
+  transform: translateY(-100%);
+
+  opacity: 0;
+}
+
+.textContainer:hover .secondary {
+  opacity: 1;
+}
+
+html {
+  --line-color: #e5e7eb;
+}
+
+html.dark {
+  --line-color: rgba(255, 255, 255, 0.2);
+}
+html,
+body {
+  scroll-behavior: smooth;
+  font-weight: 300 !important;
+}
+
+.borderBlack {
+  @apply border border-black/10;
+}
+
+.background-dot {
+  background-image: linear-gradient(#e6e6ed 1px, transparent 1px),
+    linear-gradient(to right, #e5e5ee 1px, #ebebf0 1px);
+  background-size: 42px 42px;
+}
+
+/* * {
+  border: 1px solid green;
+} */
+
+@layer base {
+  .gradient-red {
+    /* Create the gradient. */
+    background-image: linear-gradient(
+      45deg,
+      #ca4246 25%,
+      #e16541 50%,
+      #e16541 75%,
+      #f18f43 100%
+    );
+  }
+  .gradient-red {
+    /* Create the gradient. */
+    background-image: linear-gradient(
+      45deg,
+      #ca4246 16.666%,
+      #e16541 16.666%,
+      #e16541 33.333%,
+      #f18f43 33.333%,
+      #f18f43 50%,
+      #8b9862 50%,
+      #8b9862 66.666%,
+      #476098 66.666%,
+      #476098 83.333%,
+      #a7489b 83.333%
+    );
+  }
+  .gradient-text {
+    /* Fallback: Set a background color. */
+    background-color: #ca4246;
+
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Animate the text when loading the element. */
+    /* This animates it on page load and when hovering out. */
+    animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
+  }
+
+  .gradient-text:hover {
+    animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+  }
+
+  /* Move the background and make it smaller. */
+  /* Animation shown when entering the page and after the hover animation. */
+  @keyframes rainbow-text-simple-animation-rev {
+    0% {
+      background-size: 650%;
+    }
+    40% {
+      background-size: 650%;
+    }
+    100% {
+      background-size: 100%;
+    }
+  }
+
+  /* Move the background and make it larger. */
+  /* Animation shown when hovering over the text. */
+  @keyframes rainbow-text-simple-animation {
+    0% {
+      background-size: 100%;
+    }
+    80% {
+      background-size: 650%;
+    }
+    100% {
+      background-size: 650%;
+    }
+  }
+  body {
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  @font-face {
+    font-family: "TWKEverett";
+    src: url("../public/font/TWKEverett-Medium-web.ttf") format("truetype");
+    font-weight: 600 !important;
+  }
+  h1 {
+    @apply text-[26vw] md:text-[11vw] whitespace-nowrap leading-none;
+  }
+
+  h2 {
+    @apply text-[7vw] md:text-[4.3vw] font-inter_500 whitespace-nowrap leading-normal;
+  }
+
+  h4 {
+    @apply !font-inter_300;
+  }
+  .bg-gradient {
+    font-weight: 600 !important;
+    background-image: linear-gradient(120deg, #ffe1c0, #f34199);
+  }
+  .bg-radial {
+    @apply w-full h-full rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+    background-image: radial-gradient(
+      circle,
+      rgba(0, 97, 255, 0.28),
+      transparent 36%,
+      transparent
+    );
+  }
+  /* h3 {
+    @apply text-2xl leading-relaxed;
+  } */
+
+  a,
+  p {
+    @apply font-normal leading-normal md:leading-relaxed text-gray-700 text-2xl;
+  }
+
+  .skills {
+    @apply text-[6.5vw] md:text-[4vw] font-inter_500 leading-normal tracking-wide cursor-default;
+  }
+
+  .box {
+    @apply inline-block border-gray-500 border-[3px] bg-white origin-left p-3;
+  }
+}
+
+h5,
+.arrow {
+  font-size: min(7vw, 20px);
+}
+
+address {
+  font-family: inherit;
+  font-style: normal;
+}
+
+.margin-x-8 {
+  @apply !font-semibold !text-base !tracking-wider !text-black;
+}
+@media screen and (min-width: 768px) {
+  .margin-x-8 {
+    margin: 0px 36px !important;
+  }
+}
+
+.shadow-b {
+  /* box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px; */
+  box-shadow: 7px 7px 5px rgba(192, 202, 216, 0.22);
+}
+.shadow-c {
+  box-shadow: 4px 3px 23px 1px rgba(0, 0, 0, 0.09);
+  -webkit-box-shadow: 4px 3px 23px 1px rgba(0, 0, 0, 0.09);
+  -moz-box-shadow: 4px 3px 23px 1px rgba(0, 0, 0, 0.09);
+}
+input::placeholder,
+textarea::placeholder {
+  @apply tracking-wide text-gray-500 text-xl;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-weight: 300 !important;
+}
+input:focus[type="text"] ~ .input-text {
+  @apply text-blue-500 transform translate-y-4;
+}
+
+html {
+  scroll-snap-type: y mandatory;
+}
+.section-title > span {
+  white-space: nowrap;
+  animation: slide-up 4s infinite;
+}
+
+/* @keyframes slide-up {
+  0%,10% {
+    transform: translateY(0%);
+  },
+  15%,25% {
+    transform: translateY(-100%);
+  },
+  30%,40% {
+    transform: translateY(-200%);
+  },
+  45%,55% {
+    transform: translateY(-300%);
+  },
+  60%,70% {
+    transform: translateY(-400%);
+  },
+  75%,85% {
+    transform: translateY(-500%);
+  },
+} */
+
+@keyframes slide-up {
+  0%,
+  45% {
+    transform: translateY(0%);
+  }
+  50%,
+  95% {
+    transform: translateY(-100%);
+  }
+}
+
+body {
+  --black: #000000;
+  --ash-black: #222;
+  --white: #fafafa;
+  --sky: #00ccff;
+  --green: #22dddd;
+  --blue: #1300ff;
+  --dusk: #6600ff;
+  --purple: #9900ff;
+  --pink: #ff0066;
+  --red: #fe0222;
+  --orange: #fd7702;
+  --yellow: #ffbb00;
+
+  --background: var(--red);
+  --accent: var(--white);
+
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--accent);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+  background: rgb(201, 198, 198);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(96, 95, 95);
+  -webkit-border-radius: 1ex;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--background);
+} */
+
+/* #projects {
+  scroll-snap-type: y mandatory;
+} */
+
+.h24 {
+  margin: 0;
+  color: var(--accent);
+  left: 50%;
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: -3px;
+  line-height: 1.2;
+  position: absolute;
+}
+
+#projects {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  scroll-snap-align: center;
+  perspective: 500px;
+}
+
+#projects > div {
+  width: 300px;
+  height: 400px;
+  position: relative;
+  max-height: 90vh;
+  margin: 20px;
+  background: var(--white);
+  overflow: hidden;
+}
+
+#projects > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+background-color: #e5e5f7;
+opacity: 0.8;
+background-image: linear-gradient(#444cf7 1px, transparent 1px),
+  linear-gradient(to right, #444cf7 1px, #e5e5f7 1px);
+background-size: 20px 20px;
+
+.gradient-text {
+  /* Fallback: Set a background color. */
+  background-color: #ca4246;
+
+  /* Create the gradient. */
+  background-image: linear-gradient(
+    45deg,
+    #ca4246 16.666%,
+    #e16541 16.666%,
+    #e16541 33.333%,
+    #f18f43 33.333%,
+    #f18f43 50%,
+    #8b9862 50%,
+    #8b9862 66.666%,
+    #476098 66.666%,
+    #476098 83.333%,
+    #a7489b 83.333%
+  );
+
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Animate the text when loading the element. */
+  /* This animates it on page load and when hovering out. */
+  animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
+}
+
+.gradient-text:hover {
+  animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+}
+
+/* Move the background and make it smaller. */
+/* Animation shown when entering the page and after the hover animation. */
+@keyframes rainbow-text-simple-animation-rev {
+  0% {
+    background-size: 650%;
+  }
+  40% {
+    background-size: 650%;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+
+/* Move the background and make it larger. */
+/* Animation shown when hovering over the text. */
+@keyframes rainbow-text-simple-animation {
+  0% {
+    background-size: 100%;
+  }
+  80% {
+    background-size: 650%;
+  }
+  100% {
+    background-size: 650%;
+  }
+}
